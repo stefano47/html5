@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios HTML5</title>
+
+    <style>
+        #conteudo {
+            padding: 30px 0px;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercícios HTML5</h1>
+    </header>
+    
+    <nav>
+        <a href="exercicios/teste.html" target="_blank">000 - Teste</a> 
+        <a href="exercicios/textoPuro.html" target="_blank">001 - Texto puro vs Browser</a> 
+        <a href="exercicios/tags01.html" target="_blank">002 - Tags para texto 01</a> 
+        <a href="exercicios/tags02.html" target="_blank">003 - Tags para texto 02</a> 
+        <a href="exercicios/lista.html" target="_blank">004 - Listas</a> 
+        <a href="exercicios/listaAninhadas.html" target="_blank">005 - Listas Aninhadas</a> 
+        <a href="exercicios/links.html" target="_blank">006 - Links 1</a> 
+        <a href="exercicios/links2.html" target="_blank">007 - Links 2</a> 
+        <a href="exercicios/tabelas.html" target="_blank">008 - Tabelas</a> 
+        <a href="exercicios/form/formularios.html" target="_blank">009 - Formulários</a> 
+        <a href="exercicios/imagens.html" target="_blank">010 - Imagens</a> 
+        <a href="exercicios/video.html" target="_blank">011 - Vídeo</a> 
+        <a href="exercicios/tagsNaoVisuais.html" target="_blank">012 - Tags não visuais</a> 
+    </nav>
+    
+    <section id="conteudo"></section>
+    
+    <footer>
+        <p>Curso de WEB Moderno</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.querySelector('#conteudo')
+
+            link.onclick = function(e) {
+                e.preventDefault()
+                
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
